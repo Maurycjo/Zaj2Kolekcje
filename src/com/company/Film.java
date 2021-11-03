@@ -35,7 +35,7 @@ public class Film
     }
 
 
-    public void inputFilm()
+    public void addFilm()
     {
         String cin;
         int ratio;

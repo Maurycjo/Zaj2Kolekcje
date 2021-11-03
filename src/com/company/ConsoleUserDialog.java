@@ -43,7 +43,12 @@ public class ConsoleUserDialog
                 if(menu==1)
                 {
                     Film f= new Film();
+                    f.addFilm();
                     film.add(f);
+                }
+                if(menu==2)
+                {
+                    film.;
                 }
 
                 //hashset
