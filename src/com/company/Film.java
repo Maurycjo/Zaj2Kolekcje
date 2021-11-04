@@ -5,18 +5,16 @@ import java.util.Scanner;
 
 public class Film
 {
-   private String title;    //tytul filmu
-   private String genre;    //gatunek filmu
-   private int rating;             //ocena filmu
-   private String date;               //data produkcji
+   private String title=null;    //tytul filmu
+   private String genre=null;    //gatunek filmu
+   private int rating=0;             //ocena filmu
+   private String date=null;               //data produkcji
 
     private final Scanner scan = new Scanner(System.in);
 
 
-    public void setTitle(String title) throws Exception
+    public void setTitle(String title)
     {
-        if(title==null)
-            throw new Exception("Musi byc podany tytul filmu");
         this.title = title;
     }
 
@@ -35,23 +33,33 @@ public class Film
         this.date = date;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public String getDate() {
+        return date;
+    }
 
     public void addFilm()
     {
         String cin;
         int ratio;
         System.out.println("Podaj tytul");
-        cin= scan.nextLine();
-        try
-        {
-            setTitle(cin);
-        } catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+        cin= scan.next();
+        setTitle(cin);
+
 
         System.out.println("Podaj gatunek");
-        cin=scan.nextLine();
+        cin=scan.next();
         setGenre(cin);
 
         System.out.println("Podaj rating");
@@ -59,10 +67,17 @@ public class Film
         setRating(ratio);
 
         System.out.println("Podaj date produkcji");
-        cin=scan.nextLine();
+        cin=scan.next();
         setDate(cin);
     }
 
+    public void displayFilm()
+    {
+        System.out.println(getTitle());
+        System.out.println(getGenre());
+        System.out.println(getRating());
+        System.out.println(getDate());
+    }
 
 
 }
