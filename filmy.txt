@@ -1,4 +1,4 @@
-3
+4
 James Bond
 Akcja 
 5
@@ -11,3 +11,7 @@ Chlopaki z barakow
 mockdokumantal
 9
 2001-2018
+James Bond
+Akcja
+5
+2021

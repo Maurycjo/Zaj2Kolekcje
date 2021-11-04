@@ -85,7 +85,7 @@ public class ConsoleUserDialog
             case 2:
                 //TreeSet Comparator sortuje filmy po ratingu
                 Set<Film> treeFilm = new TreeSet<>(Comparator.comparing(Film::getRating));
-                
+
                 //TreeSet<Film> treeFilm = new TreeSet<Film>();
                 for(int i=0;i<input.numberOfFilms*4;i+=4)
                 {
@@ -120,10 +120,74 @@ public class ConsoleUserDialog
                 }
                 break;
             case 3:
-                //arrayList
+                ArrayList<Film> arrFilm = new ArrayList<Film>();
+                for(int i=0;i<input.numberOfFilms*4;i+=4)
+                {
+                    Film f = new Film();
+                    f.setTitle(input.InfoFilm[i]);
+                    f.setGenre(input.InfoFilm[i + 1]);
+                    f.setRating(Integer.parseInt(input.InfoFilm[i + 2]));
+                    f.setDate(input.InfoFilm[i + 3]);
+                    arrFilm.add(f);
+                }
+                while(menu!=3)
+                {
+
+                    if (menu == 1)
+                    {
+                        Film f = new Film();
+                        f.addFilm();
+                        arrFilm.add(f);
+                    }
+                    else if (menu == 2)
+                    {
+                        Iterator<Film> itrA = arrFilm.iterator();
+                        while (itrA.hasNext())
+                        {
+                            Film f = itrA.next();
+                            f.displayFilm();
+                            System.out.println();
+                        }
+                    }
+                    else
+                        System.out.println("podaj wlasciwy numer");
+                    displayOperations();
+                }
                 break;
             case 4:
-                //linkedList
+                LinkedList<Film> listFilm = new LinkedList<Film>();
+                for(int i=0;i<input.numberOfFilms*4;i+=4)
+                {
+                    Film f = new Film();
+                    f.setTitle(input.InfoFilm[i]);
+                    f.setGenre(input.InfoFilm[i + 1]);
+                    f.setRating(Integer.parseInt(input.InfoFilm[i + 2]));
+                    f.setDate(input.InfoFilm[i + 3]);
+                    listFilm.add(f);
+                }
+                while(menu!=3)
+                {
+
+                    if (menu == 1)
+                    {
+                        Film f = new Film();
+                        f.addFilm();
+                        listFilm.add(f);
+                    }
+                    else if (menu == 2)
+                    {
+                        Iterator<Film> itrL = listFilm.iterator();
+                        while (itrL.hasNext())
+                        {
+                            Film f = itrL.next();
+                            f.displayFilm();
+                            System.out.println();
+                        }
+                    }
+                    else
+                        System.out.println("podaj wlasciwy numer");
+                    displayOperations();
+                }
                 break;
 
 
