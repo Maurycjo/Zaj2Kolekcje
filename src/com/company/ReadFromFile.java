@@ -19,9 +19,7 @@ public class ReadFromFile
 
             Scanner in = new Scanner(plik); //odczyt danych
 
-            numberOfFilms = in.nextInt();
-            System.out.print("liczba filmow: ");
-            System.out.print(numberOfFilms);
+            numberOfFilms = Integer.parseInt(in.nextLine());
 
             InfoFilm = new String[numberOfFilms * 4];
             int[] infoRating = new int[numberOfFilms];

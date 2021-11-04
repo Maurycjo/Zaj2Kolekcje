@@ -46,15 +46,16 @@ public class ConsoleUserDialog
         {
             case 1:
                 HashSet<Film> film = new HashSet<Film>();
-                for(int i=0;i<input.numberOfFilms;i++)
+                for(int i=0;i<input.numberOfFilms*4;i+=4)
                 {
-                    System.out.println("jest hashset");
+
                     Film f = new Film();
                     f.setTitle(input.InfoFilm[i]);
                     f.setGenre(input.InfoFilm[i + 1]);
                     f.setRating(Integer.parseInt(input.InfoFilm[i + 2]));
                     f.setDate(input.InfoFilm[i + 3]);
                     film.add(f);
+
                 }
 
                 if(menu==1)
@@ -65,15 +66,12 @@ public class ConsoleUserDialog
                 }
                 if(menu==2)
                 {
-                    System.out.print("halo");
                     Iterator<Film> itr=film.iterator();
                     while (itr.hasNext())
                     {
                      Film f=itr.next();
                      f.displayFilm();
-                     System.out.print("1");
-
-
+                     System.out.println();
                     }
 
                 }
