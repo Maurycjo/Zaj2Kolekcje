@@ -1,4 +1,6 @@
 package com.company;
+import com.sun.source.tree.Tree;
+
 import java.io.File;
 import java.util.HashSet;
 import  java.util.Scanner;
@@ -29,6 +31,7 @@ public class ConsoleUserDialog
     {
         System.out.println("(1) Dodaj film");
         System.out.println("(2) Wyswietl filmy(iterator)");
+        System.out.println("(3) Wyjscie");
         System.out.println("Wybierz operacje: ");
         menu= scan.nextInt();
 
@@ -48,38 +51,73 @@ public class ConsoleUserDialog
                 HashSet<Film> film = new HashSet<Film>();
                 for(int i=0;i<input.numberOfFilms*4;i+=4)
                 {
-
                     Film f = new Film();
                     f.setTitle(input.InfoFilm[i]);
                     f.setGenre(input.InfoFilm[i + 1]);
                     f.setRating(Integer.parseInt(input.InfoFilm[i + 2]));
                     f.setDate(input.InfoFilm[i + 3]);
                     film.add(f);
-
                 }
+                while(menu!=3)
+                {
 
-                if(menu==1)
-                {
-                    Film f= new Film();
-                    f.addFilm();
-                    film.add(f);
-                }
-                if(menu==2)
-                {
-                    Iterator<Film> itr=film.iterator();
-                    while (itr.hasNext())
+                    if (menu == 1)
                     {
-                     Film f=itr.next();
-                     f.displayFilm();
-                     System.out.println();
+                        Film f = new Film();
+                        f.addFilm();
+                        film.add(f);
                     }
-
+                    else if (menu == 2)
+                    {
+                        Iterator<Film> itr = film.iterator();
+                        while (itr.hasNext())
+                        {
+                            Film f = itr.next();
+                            f.displayFilm();
+                            System.out.println();
+                        }
+                    }
+                    else
+                        System.out.println("podaj wlasciwy numer");
+                        displayOperations();
                 }
-
-                //hashset
                 break;
             case 2:
-                //TreeSet
+                //TreeSet Comparator sortuje filmy po ratingu
+                Set<Film> treeFilm = new TreeSet<>(Comparator.comparing(Film::getRating));
+                
+                //TreeSet<Film> treeFilm = new TreeSet<Film>();
+                for(int i=0;i<input.numberOfFilms*4;i+=4)
+                {
+                    Film f = new Film();
+                    f.setTitle(input.InfoFilm[i]);
+                    f.setGenre(input.InfoFilm[i + 1]);
+                    f.setRating(Integer.parseInt(input.InfoFilm[i + 2]));
+                    f.setDate(input.InfoFilm[i + 3]);
+                    treeFilm.add(f);
+                }
+                while(menu!=3)
+                {
+                    if (menu == 1)
+                    {
+                        Film f = new Film();
+                        f.addFilm();
+                        treeFilm.add(f);
+                    }
+                    else if (menu == 2)
+                    {
+                        Iterator<Film> itrT = treeFilm.iterator();
+                        while (itrT.hasNext())
+                        {
+                            Film f = itrT.next();
+                            f.displayFilm();
+                            System.out.println();
+                        }
+                    }
+                    else
+                        System.out.println("podaj wlasciwy numer");
+                    displayOperations();
+                }
                 break;
             case 3:
                 //arrayList
