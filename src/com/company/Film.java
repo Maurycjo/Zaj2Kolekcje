@@ -1,5 +1,6 @@
 package com.company;
 
+import java.io.*;
 import java.util.Scanner;
 
 public class Film
@@ -60,9 +61,8 @@ public class Film
         System.out.println("Podaj date produkcji");
         cin=scan.nextLine();
         setDate(cin);
-
-
     }
+
 
 
 }
